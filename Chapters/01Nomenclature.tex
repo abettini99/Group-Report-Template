@@ -1,0 +1,137 @@
+%%% Nomenclature Code
+% incorporate https://tex.stackexchange.com/questions/112884/how-to-achieve-nomenclature-entries-like-symbol-description-dimension-and-uni
+
+\newcommand{\DimensUnits}[2]{\hfill\makebox[8em]{#1\hfill}%
+\makebox[5em]{#2\hfill}\ignorespaces} % first number related to 'dimensions' box size, second number related to 'units' box size
+\newcommand{\DefinitionCol}[1]{\hfill\parbox[t]{13em}{#1}\ignorespaces} % number related to 'definition' box size
+
+
+\newcommand{\nomsubtitle}[1]{\item[\Large\bfseries #1]}
+\renewcommand\nomgroup[1]{%
+\itemsep0pt % just disable this line if you do not want spacing
+\vspace{10pt}
+\def\nomtemp{\csname nomstart#1\endcsname}\nomtemp
+}
+
+\newcommand{\nomstartA}{\nomsubtitle{Acronyms}%
+  \item[\bfseries Symbol]\textbf{Description}}
+\newcommand{\nomstartD}{\nomsubtitle{Dimensionless numbers}%
+  \item[\bfseries Symbol]\textbf{Description}\DefinitionCol{\textbf{Definition}}}
+
+\newcommand{\nomstartR}{\nomsubtitle{Latin symbols}%        % R for Roman
+  \item[\bfseries Symbol]%
+  \textbf{Description}\DimensUnits{\textbf{Dimensions}}{\textbf{Units}}}
+\newcommand{\nomstartG}{\nomsubtitle{Greek symbols}%
+  \item[\bfseries Symbol]%
+  \textbf{Description}\DimensUnits{\textbf{Dimensions}}{\textbf{Units}}}
+
+\newcommand{\nomstartS}{\nomsubtitle{Superscripts}%
+  \item[\bfseries Symbol]\textbf{Description}}
+\newcommand{\nomstartU}{\nomsubtitle{Subscripts}%
+  \item[\bfseries Symbol]\textbf{Description}}
+
+\renewcommand*{\nompreamble}{
+\markboth{\nomname}{\nomname}
+%\begin{multicols*}{2}
+}
+\renewcommand{\nompostamble}{}%\end{multicols*}}
+
+\newcommand{\nomdescr}[1]{\parbox[t]{8cm}{\RaggedRight #1}} % the cm box changes the size of the description box
+\newcommand{\nomwithdim}[5]{\nomenclature[#1]{#2}%
+{\nomdescr{#3}\DimensUnits{#4}{#5}}}
+
+\newcommand{\nomtypeA}[3][]{\nomenclature[A#1]{#2}{#3}}
+\newcommand{\nomtypeD}[4][]{\nomenclature[D#1]{#2}{\nomdescr{#3}\DefinitionCol{#4}}}
+\newcommand{\nomtypeR}[5][]{\nomwithdim{R#1}{#2}{#3}{#4}{#5}}
+\newcommand{\nomtypeG}[5][]{\nomwithdim{G#1}{#2}{#3}{#4}{#5}}
+\newcommand{\nomtypeS}[3][]{\nomenclature[S#1]{#2}{#3}}
+\newcommand{\nomtypeU}[3][]{\nomenclature[U#1]{#2}{#3}}
+\makenomenclature
+
+\mbox{}
+
+%%% NOMENCLATURE GOES BELOW
+% Dimensions based on https://www.ldeo.columbia.edu/~martins/hydro/case_studies/units_dimensions.html
+\newcommand{\Lunit}{\textrm{L}}                   % length unit for MLT system
+\newcommand{\Munit}{\textrm{M}}                   % mass unit for MLT system
+\newcommand{\Tunit}{\textrm{T}}                   % time unit for MLT system
+\newcommand{\Qunit}{\textrm{Q}}                   % temperature unit for MLT system
+
+% ADD ACRONYMS HERE
+\nomtypeA{ROI}{Reality of interest}
+\nomtypeA{BEM}{Blade element momentum theory}
+\nomtypeA{RPM}{Revolutions per minute}
+\nomtypeA{tol}{Tolerance}
+\nomtypeA{TUI}{Text user interface}
+\nomtypeA[ZZZ]{}{} % make sure to finish off with this, fixes small issue with spacing on the last line
+
+% ADD DIMENSIONLESS NUMBERS HERE
+\nomtypeD{\( \Re \)}{Reynolds number}{\(\displaystyle \frac{U L}{\nu} \)}
+\nomtypeD[ZZZ]{}{}{} % make sure to finish off with this, fixes small issue with spacing on the last line
+
+% ADD GREEK SYMBOLS HERE
+\nomtypeG{\( \gamma \)} {Yaw angle}{--}{\si{\degree}}
+\nomtypeG{\( \chi \)}   {Wake skew angle}{--}{\si{\degree}}
+\nomtypeG{\( \psi \)}   {Azimuthal angle}{--}{\si{\degree}}
+\nomtypeG{\( \phi \)}   {Inflow angle}{--}{\si{\degree}}
+\nomtypeG{\( \alpha \)} {Angle of attack}{--}{\si{\degree}}
+\nomtypeG{\( \beta \)}  {Blade twist angle}{--}{\si{\degree}}
+\nomtypeG{\( \theta \)} {Collective pitch angle}{--}{\si{\degree}}
+\nomtypeG{\( \epsilon \)}{Error}{--}{--}
+\nomtypeG{\( \mu \)}    {Normalized radial position}{--}{--}
+\nomtypeG{\( \rho \)}   {Air density}{\( \Munit\Lunit^{-3} \)}{\si{\kilogram\per\meter\cubed}}
+\nomtypeG{\( \Omega \)} {Radial velocity}{\( \Tunit^{-1} \)}{\si{\radian\per\second}}
+\nomtypeG{\( \omega \)} {Vorticity}{\( \Tunit^{-1} \)}{\si{\per\second}}
+\nomtypeG{\( \sigma_r \)} {Blade solidity}{--}{--}
+\nomtypeG{\( \Gamma \)} {Circulation}{\( \Lunit^{2} \Tunit^{-1} \)}{\si{ \meter \squared \per \second}}
+\nomtypeG{\( \lambda \)} {Tip speed ratio}{--}{--}
+\nomtypeG[ZZZ]{}{}{}{} % make sure to finish off with this, fixes small issue with spacing on the last line
+
+% ADD ROMAN SYMBOLS HERE
+\nomtypeR{\( U_{\infty} \)}{Free-stream velocity}{\( \Lunit\Tunit^{-1} \)}{\si{\meter\per\second}}
+\nomtypeR{\( V_{a} \)}  {Axial velocity}{\( \Lunit\Tunit^{-1} \)}{\si{\meter\per\second}}
+\nomtypeR{\( V_{t} \)}  {Tangential velocity}{\( \Lunit\Tunit^{-1} \)}{\si{\meter\per\second}} 
+\nomtypeR{\( W \)}  {Total effective velocity}{\( \Lunit\Tunit^{-1} \)}{\si{\meter\per\second}}
+\nomtypeR{\( L \)}      {Lift}{\( \Munit\Lunit\Tunit^{-2} \)}{\si{\newton}}
+\nomtypeR{\( F \)}      {Force}{\( \Munit\Lunit\Tunit^{-2} \)}{\si{\newton}}
+\nomtypeR{\( D \)}      {Drag}{\( \Munit\Lunit\Tunit^{-2} \)}{\si{\newton}}
+\nomtypeR{\( C_p \)}    {Power coefficient}{--}{--}
+\nomtypeR{\( C_T \)}    {Thrust coefficient}{--}{--}
+\nomtypeR{\( C_l \)}    {Sectional lift coefficient}{--}{--}
+\nomtypeR{\( C_d \)}    {Sectional drag coefficient}{--}{--}
+\nomtypeR{\( a \)}      {Axial induction factor}{--}{--}
+\nomtypeR{\( a' \)}     {Azimuthal induction factor}{--}{--}
+\nomtypeR{\( h \)}      {ISA altitude}{\( \Lunit \)}{\si{\meter}}
+\nomtypeR{\( p \)}      {Static pressure}{\( \Munit\Lunit^{-1}\Tunit^{-2} \)}{\si{\pascal}}
+\nomtypeR{\( T \)}      {Static temperature}{\( \Qunit \)}{\si{\kelvin}}
+\nomtypeR{\( N_b \)}    {Number of blades}{--}{--}
+\nomtypeR{\( C_v \)}    {Specific volumetric heat capacity}{\( \Lunit^2\Qunit^{-1}\Tunit^{-2} \)}{\si{\joule\per\kilogram\per \kelvin}}
+\nomtypeR{\( N_r \)}    {Number of annuli elements}{--}{--}
+\nomtypeR{\( N_{\psi} \)}{Number of azimuthal elements}{--}{--}
+\nomtypeR{\( c \)}      {Chord length}{\( \Lunit \)}{\si{\meter}} 
+\nomtypeR{\( A \)}      {Surface area}{\( \Lunit^2 \)}{\si{\meter\squared}}
+\nomtypeR{\( t \)}      {Time}{\( \Tunit \)}{\si{\second}}
+\nomtypeR{\( n \)}      {Rotational velocity}{\( \Tunit^{-1} \)}{\si{\per\second}}
+\nomtypeR{\( P \)}      {Power}{\( \Munit\Lunit^2\Tunit^{-3} \)}{\si{\watt}}
+\nomtypeR{\( Q \)}      {Torque}{\( \Munit\Lunit^2\Tunit^{-2} \)}{\si{\newton\meter}} 
+\nomtypeR{\( D \)}      {Rotor diameter}{\( \Lunit \)}{\si{\meter}}
+\nomtypeR{\( f \)}      {Prandtl root/tip correction factor}{--}{--}
+\nomtypeR{\( h \)}      {Specific stagnation enthalpy}{\( \Lunit^{2}\Tunit^{-2} \)}{\si{\joule\per\kilogram}}
+\nomtypeR{\( r \)}      {Radial position}{\( \Lunit \)}{\si{\meter}} 
+\nomtypeR[ZZZ]{}{}{}{} % make sure to finish off with this, fixes small issue with spacing on the last line
+
+% ADD SUPERSCRIPTS HERE
+\nomtypeS{\( n \)}{time step}
+\nomtypeS[ZZZ]{}{} % make sure to finish off with this, fixes small issue with spacing on the last line
+
+% ADD SUBSCRIPTS HERE
+\nomtypeU{\( \infty \)}{free stream}
+\nomtypeU{\( \textrm{disk} \)}{Rotor disk}
+\nomtypeU{\( \textrm{0} \)}{Disk averaged}
+\nomtypeU{\( \bar{\psi} \)}{Azimuthal averaged}
+\nomtypeU{\( x \)}{$x$-direction}
+\nomtypeU{\( y \)}{$y$-direction}
+\nomtypeU[ZZZ]{}{} % make sure to finish off with this, fixes small issue with spacing on the last line
+
+\printnomenclature[6em] % change spacing between symbol and description
+\newpage
