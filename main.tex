@@ -231,15 +231,15 @@
 % \newpage %% new page included due to the nomenclature package
 
 % Basically, reset counters every time you step into a new part of the report. Useful for when you have many many sections and you need to navigate quickly. Check the cls file for the numbering system.
-\counterwithin*{equation}{section}
-\counterwithin*{equation}{subsection}
-\counterwithin*{equation}{subsubsection}
-\counterwithin*{figure}{section}
-\counterwithin*{figure}{subsection}
-\counterwithin*{figure}{subsubsection}
-\counterwithin*{table}{section}
-\counterwithin*{table}{subsection}
-\counterwithin*{table}{subsubsection}
+% \counterwithin*{equation}{section}
+% \counterwithin*{equation}{subsection}
+% \counterwithin*{equation}{subsubsection}
+% \counterwithin*{figure}{section}
+% \counterwithin*{figure}{subsection}
+% \counterwithin*{figure}{subsubsection}
+% \counterwithin*{table}{section}
+% \counterwithin*{table}{subsection}
+% \counterwithin*{table}{subsubsection}
 
 % Basically, creates new chapter numbering within a new part using the chngcntr package, this stops LaTeX from destroying the document outline when exporting, which is what happens when you \setcounter{chapter}{0} when the previous part had higher numbering.
 \counterwithin*{chapter}{part}

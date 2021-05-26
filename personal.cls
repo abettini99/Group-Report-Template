@@ -173,9 +173,12 @@
 }
 
 \RequirePackage[tableposition=top, figurename=Figure]{caption}
-\renewcommand{\thefigure}{\getCurrentSectionNumber--\arabic{figure}}
-\renewcommand{\thetable}{\getCurrentSectionNumber--\arabic{table}}
-\renewcommand{\theequation}{\getCurrentSectionNumber--\arabic{equation}}
+% \renewcommand{\thefigure}{\getCurrentSectionNumber--\arabic{figure}}
+% \renewcommand{\thetable}{\getCurrentSectionNumber--\arabic{table}}
+% \renewcommand{\theequation}{\getCurrentSectionNumber--\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\theequation}{\arabic{equation}}
 \captionsetup*{font={small}, labelfont={sc, bf}, labelsep=quad}
 \renewcommand{\arraystretch}{1.2}
 
