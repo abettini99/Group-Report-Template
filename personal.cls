@@ -143,7 +143,7 @@
 
 % \RequirePackage{minted}     % https://ctan.org/pkg/minted %% Use this for code.
 \if@american
-    \RequirePackage[USenglish]{babel}               % https://ctan.org/pkg/babel %% manages culturally-determined typographical (and other) rules for a wide range of languages 
+    \RequirePackage[american]{babel}               % https://ctan.org/pkg/babel %% manages culturally-determined typographical (and other) rules for a wide range of languages 
     \RequirePackage[style=american]{csquotes}       % https://ctan.org/pkg/csquotes %% provides advanced facilities for inline and display quotations, check their documentation to find out how to quote properly        
     \RequirePackage[USenglish,style=iso]{datetime2} % https://www.ctan.org/pkg/datetime2 %% This package provides commands for formatting dates, times and time zones and redefines \today to use the same formatting style. By default uses ISO formatting described in ISO 8601 and DIN 5008.
 \fi

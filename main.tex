@@ -189,6 +189,15 @@
 % https://tex.stackexchange.com/questions/142551/how-to-put-therefore-and-implies-symbols
 \newcommand{\therefore}{\dot{.\hspace{.055in}.}\hspace{.2in}}
 
+%% Using the same figure twice with no new number
+% https://tex.stackexchange.com/questions/200211/using-the-same-figure-twice-with-no-new-number
+\newcommand{\repeatcaption}[2]{%
+  \renewcommand{\thefigure}{\ref{#1}}%
+  \captionsetup{list=no}%
+  \caption{#2 (repeated from page \pageref{#1})}%
+  \addtocounter{figure}{-1}% So that next figure after the repeat gets the right number.
+}
+
 % Create delimiter environments (e.g floor(t) produces ⌊t⌋)
 % --------------------
 % https://tex.stackexchange.com/questions/118173/how-to-write-ceil-and-floor-in-latex
@@ -212,11 +221,14 @@
 \openany % clears a single page instead of double for chapters % https://stackoverflow.com/questions/491904/how-do-i-remove-blank-pages-coming-between-two-chapters-in-appendix
 \raggedbottom % makes text stop getting additional whitespace trying to stretch text vertically
 \begin{document}
-\sisetup{   detect-family,
-            detect-weight,
-            math-rm = \mathrm }
+% \sisetup{   detect-family,
+%             detect-weight,
+%             math-rm = \mathrm }
 
 \input{titlepage.tex}
+
+\input{Chapters/00Abstract.tex}
+\input{Chapters/00Preface.tex}
 
 \newpage
 \pagestyle{plain}

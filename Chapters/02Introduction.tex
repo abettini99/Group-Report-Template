@@ -179,3 +179,24 @@ when there exists an author with last name prefix of 'van', use the \textbacksla
     \caption{graphs (continued float)}
     \label{fig:graph_contfloat}
 \end{figure}
+
+\subsubsection{Aligned graphs}
+
+\begin{figure}[H]
+\begin{tabular}{@{}p{0.485\textwidth}p{0.485\textwidth}@{}}
+    \raisebox{-\height}{\includegraphics[width=1.0\linewidth]{Images/graph.jpg}}&
+    \raisebox{-\height}{\includegraphics[width=1.0\linewidth]{Images/graph.jpg}}\\
+    \caption{graph}\label{fig:graph9}&
+    \caption{graph graph graph graph graph graph graph graph graph graph graph graph graph graph graph graph}\label{fig:graph10}
+\end{tabular}
+\end{figure}
+
+\subsubsection{Aligned repeated graphs}
+\begin{figure}[H]
+\begin{tabular}{@{}p{0.485\textwidth}p{0.485\textwidth}@{}}
+    \raisebox{-\height}{\includegraphics[width=1.0\linewidth]{Images/graph.jpg}}&
+    \raisebox{-\height}{\includegraphics[width=1.0\linewidth]{Images/graph.jpg}}\\
+    \repeatcaption{fig:graph9}{graph}&
+    \repeatcaption{fig:graph10}{graph graph graph graph graph graph graph graph graph graph graph graph graph graph graph graph }
+\end{tabular}
+\end{figure}
