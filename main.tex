@@ -38,7 +38,7 @@
 %\usepackage{arydshln}   % https://ctan.org/pkg/arydshln %% The package is to draw dash-lines in array/tabular environments. Horizontal lines are drawn by \hdashline and \cdashline while vertical ones can be specified as a part of the preamble using ‘:’. The shape of dash-lines may be controlled through style parameters or optional arguments. %% CONFLICT WITH BOOKTABS
 \usepackage{pifont}     % https://www.ctan.org/pkg/pifont %% The package provides commands for Pi fonts (Dingbats, Symbol, etc.); all commands assume you know the character number within the font of the symbol within the font. 
 \usepackage{ragged2e}   % https://www.ctan.org/pkg/ragged2e %% The package defines new commands \Centering, \RaggedLeft, and \RaggedRight and new environments Center, FlushLeft, and FlushRight, which set ragged text and are easily configurable to allow hyphenation (the corresponding commands in LaTeX, all of whose names are lower-case, prevent hyphenation altogether)
-
+\usepackage{bookmark}   % https://ctan.org/pkg/bookmark?lang=en %% This package implements a new bookmark (outline) organization for package hyperref. Bookmark properties such as style and color can now be set. Other action types are available (URI, GoToR, Named). The bookmarks are generated in the first compile run. Package hyperref uses two runs. 
 
 %% Enable the following to display watermarks
 % --------------------
@@ -184,10 +184,16 @@
 \newcommand{\St}{\mathrm{St}}                   % Strouhal number
 \newcommand{\Gr}{\mathrm{Gr}}                   % Grashof number
 \newcommand{\Ma}{\mathrm{Ma}}                   % Mach number
+\newcommand{\Tu}{\mathrm{Tu}}                   % Turbulence level
 
 %% With Eulervm, no \therefore defined
 % https://tex.stackexchange.com/questions/142551/how-to-put-therefore-and-implies-symbols
 \newcommand{\therefore}{\dot{.\hspace{.055in}.}\hspace{.2in}}
+
+%% standard /mapsto symbol, but reversed
+% https://tex.stackexchange.com/questions/26508/left-version-of-mapsto
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\newcommand{\longmapsfrom}{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
 
 %% Using the same figure twice with no new number
 % https://tex.stackexchange.com/questions/200211/using-the-same-figure-twice-with-no-new-number
@@ -227,6 +233,7 @@
 
 \input{titlepage.tex}
 
+\pagenumbering{roman}
 \input{Chapters/00Abstract.tex}
 \input{Chapters/00Preface.tex}
 
@@ -259,10 +266,11 @@
 % \input{Chapters/00Abstract.tex}
 
 \pagestyle{nomenclature}
-\input{Chapters/01Nomenclature.tex}
+\input{Chapters/00Nomenclature.tex}
 \pagestyle{mystyle}
+\pagenumbering{arabic}
 
-\input{Chapters/02Introduction.tex}
+\input{Chapters/01Introduction.tex}
 
 \DeclareRobustCommand{\VAN}[0]{van} % Change from Van to van
 % \printbibliography[title={Works Cited}, heading=bibintoc]
@@ -271,6 +279,7 @@
 \printbibliography%[heading=none]
 %\end{multicols}
 
+\bookmarksetup{startatroot} % https://tex.stackexchange.com/questions/131959/pdf-bookmarks-for-references-and-index-appear-as-contained-in-the-appendix-wron/131966
 \input{Chapters/A_Appendix.tex}
 
 \end{document}

@@ -22,6 +22,10 @@
 
 \RequirePackage[l2tabu, orthodox]{nag} % https://ctan.org/pkg/nag %% In case I commit a cardinal sin of loading depreciated modules, or some dumb stuff that can be picked up (i.e use \centering instead of \begin{center}[...]\end{center})
 \LoadClass[12pt]{memoir}
+\setlength\footparindent{\parindent}
+\setlength{\footmarkwidth}{0em}
+\setlength{\footmarksep}{0em}
+% \footmarkstyle{\makebox[\footparindent][l]{\textsuperscript{#1}}}
 
 % Online fix for all fontenc-inputenc interactions and use of inputenc, to be honest i have no clue what these do.
 \RequirePackage{iftex}
@@ -70,7 +74,7 @@
 \RequirePackage{titletoc}
 
 % Control over footnotes
-\RequirePackage[flushmargin,hang,bottom]{footmisc} % bottom makes footnotes always go at the very bottom of the page.
+% \RequirePackage[flushmargin,hang,bottom]{footmisc} % bottom makes footnotes always go at the very bottom of the page. %% Removed as memoir has its own options
 \RequirePackage{fancyhdr} % Provides extensive control over footers and headers % https://tex.stackexchange.com/questions/129829/warning-command-makecol-has-changed read the following link to see why the load order is this way instead of the other way.
 \RequirePackage[hyphens]{url}
 \ifxetex
