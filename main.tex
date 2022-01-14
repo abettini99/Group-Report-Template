@@ -24,7 +24,7 @@
 %\usepackage[skip]{parskip}   % https://ctan.org/pkg/parskip %% Changes from indentations to line skips between paragraphs % already included in the memoir class, use lines below instead
 \nonzeroparskip
 \setlength{\parindent}{0pt}
-\usepackage{chngcntr}   % https://ctan.org/pkg/chngcntr %% Change the resetting of counters by using \counterwithin (which sets up a counter to be reset when another is incremented) and \counterwithout (which unsets such a relationship).
+% \usepackage{chngcntr}   % https://ctan.org/pkg/chngcntr %% Change the resetting of counters by using \counterwithin (which sets up a counter to be reset when another is incremented) and \counterwithout (which unsets such a relationship). %%% ALREADY IN MEMOIR CLASS
 \usepackage{wrapfig}    % https://ctan.org/pkg/wrapfig %% allows the use of 'wrapfigure' environments
 \usepackage{pdfpages}   % https://ctan.org/pkg/pdfpages %% This package simplifies the inclusion of external multi-page PDF documents in LaTeX documents. 
 \usepackage{xcolor}     % https://ctan.org/pkg/xcolor %% Provides easy driver-independent access to several kinds of color tints, shades, tones, and mixes of arbitrary colors.
@@ -214,6 +214,9 @@
 % --------------------
 \renewcommand{\vec}[1]{ \barbelow{\bm{#1}} }    % \vec to \bm combination
 \renewcommand{\div}{ \barbelow{\nabla}\cdot}    % \div now includes bar below.
+\renewcommand{\printtoctitle}[1]{\fontfamily{qhv}\selectfont\bfseries\huge#1}
+\renewcommand{\printloftitle}[1]{\fontfamily{qhv}\selectfont\bfseries\huge#1}
+\renewcommand{\printlottitle}[1]{\fontfamily{qhv}\selectfont\bfseries\huge#1}
 
 % Robust Commands:
 % --------------------
@@ -242,7 +245,6 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 \newpage
-
 \listoffigures
 \newpage
 \listoftables

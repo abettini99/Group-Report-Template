@@ -46,26 +46,6 @@
    \defaultfontfeatures{Ligatures=TeX}
 \fi
 
-%% https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math        %%%%%% font suggestions!
-\RequirePackage{blindtext}
-\RequirePackage{microtype}
-
-%%% TEXT FONTS
-% \RequirePackage{newtxtext}
-\RequirePackage{newpxtext}
-%\RequirePackage{libertine}
-
-%%% MATH PACKAGES INTERLUDE
-\RequirePackage{amsmath}    %% https://ctan.org/pkg/amsmath?lang=en %% essential math package, check their userguide for content
-\RequirePackage{mathtools}
-\RequirePackage{amsfonts}   %% https://ctan.org/pkg/amsfonts %% An extended set of fonts for use in mathematics
-
-%%% MATH FONTS
-% \RequirePackage{newtxmath}
-% \RequirePackage[vvarbb]{newpxmath}
-\RequirePackage{eulervm}    %% i do not like the euler-hat-accent option
-% \RequirePackage[frenchmath]{libertinust1math}
-
 \RequirePackage[letterpaper,margin=2cm]{geometry}
 \RequirePackage{enumitem}
 \setlist{labelindent=\parindent,leftmargin=*,nosep}
@@ -113,23 +93,23 @@
 
 \titleformat{\chapter}%[display] % [display] makes a new line
     {}
-    {\fontsize{40}{40}\selectfont\thechapter}{20pt}{\bfseries\huge#1}[]
+    {\fontsize{40}{40}\selectfont\thechapter}{20pt}{\fontfamily{qhv}\selectfont\bfseries\huge#1}[]
 \titlespacing{\chapter}{0pt}{-10pt}{1\baselineskip}
 
 \titleformat{\section}
   {\Large\bfseries}%\centering}
-  {\Huge{\thesection}\space}{5pt}{#1}[]
+  {\Huge{\thesection}\space}{5pt}{\fontfamily{qhv}\selectfont#1}[]
 \titlespacing{\section}{0pt}{0.5\baselineskip}{0pt}
 
 \titleformat{\subsection}
   {\large\bfseries}
-  {\thesubsection\space}{5pt}{#1}[]
+  {\thesubsection\space}{5pt}{\fontfamily{qhv}\selectfont#1}[]
 \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
 
 \titleformat{\subsubsection}
 %   {\large\itshape\singlespacing}
   {\large\bfseries}
-  {\thesubsubsection\space}{5pt}{#1}[]
+  {\thesubsubsection\space}{5pt}{\fontfamily{qhv}\selectfont#1}[]
 \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
 
 \RequirePackage{lettrine}
@@ -156,6 +136,26 @@
     \RequirePackage[style=british]{csquotes} 
     \RequirePackage[UKenglish,style=iso]{datetime2}
 \fi
+
+%% https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math        %%%%%% font suggestions!
+\RequirePackage{blindtext}
+\RequirePackage{microtype}
+
+%%% TEXT FONTS
+% \RequirePackage{newtxtext}
+\RequirePackage{newpxtext}
+%\RequirePackage{libertine}
+
+%%% MATH PACKAGES INTERLUDE
+\RequirePackage{amsmath}    %% https://ctan.org/pkg/amsmath?lang=en %% essential math package, check their userguide for content
+\RequirePackage{mathtools}
+\RequirePackage{amsfonts}   %% https://ctan.org/pkg/amsfonts %% An extended set of fonts for use in mathematics
+
+%%% MATH FONTS
+% \RequirePackage{newtxmath}
+% \RequirePackage[vvarbb]{newpxmath}
+\RequirePackage{eulervm}    %% i do not like the euler-hat-accent option
+% \RequirePackage[frenchmath]{libertinust1math}
 
 % Changing Figures, Tables, and Equations:
 % --------------------
