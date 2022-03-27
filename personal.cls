@@ -46,7 +46,7 @@
    \defaultfontfeatures{Ligatures=TeX}
 \fi
 
-\RequirePackage[letterpaper,margin=2cm]{geometry}
+\RequirePackage[letterpaper,margin=2.5cm]{geometry}
 \RequirePackage{enumitem}
 \setlist{labelindent=\parindent,leftmargin=*,nosep}
 \setlist[enumerate]{label={\arabic*)}}
